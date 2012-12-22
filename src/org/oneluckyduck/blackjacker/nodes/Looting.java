@@ -8,6 +8,7 @@ import org.powerbot.core.script.job.state.Node;
 import org.powerbot.game.api.methods.input.Mouse;
 import org.powerbot.game.api.methods.interactive.NPCs;
 import org.powerbot.game.api.methods.node.Menu;
+import org.powerbot.game.api.methods.widget.Camera;
 import org.powerbot.game.api.util.Random;
 import org.powerbot.game.api.util.Timer;
 import org.powerbot.game.api.wrappers.interactive.NPC;
@@ -19,6 +20,7 @@ public class Looting extends Node {
 		if (trainer.getAnimation() == 12413) {
 			final Timer timer = new Timer(10000);
 			Methods.s("He is knocked out, looting");
+			if(!trainer.isOnScreen()) Camera.turnTo(trainer);
 			while (trainer.getAnimation() == 12413 && timer.isRunning()) {
 				Methods.openMenu(trainer, true);
 				if (Menu.isOpen()) {

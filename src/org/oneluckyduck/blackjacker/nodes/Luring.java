@@ -6,6 +6,7 @@ import org.powerbot.core.script.job.Task;
 import org.powerbot.core.script.job.state.Node;
 import org.powerbot.game.api.methods.interactive.NPCs;
 import org.powerbot.game.api.methods.node.Menu;
+import org.powerbot.game.api.methods.widget.Camera;
 import org.powerbot.game.api.util.Timer;
 import org.powerbot.game.api.wrappers.interactive.NPC;
 
@@ -15,6 +16,7 @@ public class Luring extends Node {
 	public void execute() {
 		final NPC trainer = NPCs.getNearest(Const.ADVANCED_TRAINER_ID);
 		Methods.s("Opening menu");
+		if(!trainer.isOnScreen()) Camera.turnTo(trainer);
 		Methods.openMenu(trainer, true);
 		Methods.s("Waiting for menu");
 		final Timer t = new Timer(2000);

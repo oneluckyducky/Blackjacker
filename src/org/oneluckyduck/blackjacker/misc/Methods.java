@@ -48,7 +48,7 @@ public class Methods {
 
 	public static void s(final String s) {
 		Variables.status = s;
-		System.out.println("[Thieves Guild Blackjacker] " + s);
+		System.out.println(String.format("[Thieves Guild Blackjacker] %s", s));
 	}
 
 	public boolean isIdle() {
