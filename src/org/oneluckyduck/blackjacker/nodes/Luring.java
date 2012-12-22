@@ -30,8 +30,6 @@ public class Luring extends Node {
 			final Timer timer = new Timer(2000);
 			while (timer.isRunning()) {
 				Task.sleep(5);
-				// if (Widgets.get(1191, 18).validate())
-				// break;
 			}
 			Methods.s("Opening menu");
 			Methods.openMenu(trainer, true);
@@ -42,10 +40,10 @@ public class Luring extends Node {
 			if (Menu.isOpen() && Menu.contains("Knock-out", Const.NAME)) {
 				Methods.s("Knocking the fatass out");
 				Menu.select("Knock-out", Const.NAME);
-				Timer t1 = new Timer(5600);
+				Timer timer1 = new Timer(5600);
 				while (trainer.getAnimation() != 12413) {
 					Task.sleep(10);
-					if (!t1.isRunning()) {
+					if (!timer1.isRunning()) {
 						Methods.s("Think i failed");
 						break;
 					}
